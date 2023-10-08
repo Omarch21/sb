@@ -1,0 +1,46 @@
+.login {
+    text-align: center;
+    background-color: #3498db;
+    width: 20%; 
+    margin: 0 auto; 
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: white; 
+    opacity: 0.9;
+  }
+  
+  .error-message {
+    display: block; 
+    margin-top: 10px; 
+    color: #e74c3c; 
+  }
+  
+  
+  .inputext {
+    color: #333; 
+  }
+  
+  .inputext:focus {
+    border-color: #3498db; 
+  }
+  
+  mat-raised-button {
+    background-color: #2980b9; 
+    color: white;
+    margin-top: 20px;
+  }
+  
+  mat-raised-button:hover {
+    background-color: #3498db;
+  }
+  
+  .sign-up-link {
+    color: #ffffff; 
+    text-decoration: none;
+  }
+  
+  .sign-up-link:hover {
+    text-decoration: underline;
+  }
+  

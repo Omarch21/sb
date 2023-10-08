@@ -1,0 +1,32 @@
+<br>
+<br>
+<br>
+<div class="login">
+  <div *ngIf="loginErrorMessage != ''">{{loginErrorMessage}}</div>
+  <h1>Login</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <mat-form-field>
+      <input matInput placeholder="Email address" formControlName="email"class="inputext" />
+      <mat-error class="error-message" *ngIf="email?.errors?.['required']">
+        Email address required
+      </mat-error>
+      <mat-error class="error-message" *ngIf="email?.errors?.['email']">
+        Enter a valid email address
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" formControlName="password"class="inputext" />
+      <mat-error class="error-message"*ngIf="password?.errors?.['required']">
+        Password required
+      </mat-error>
+    </mat-form-field>
+    <div class="center margin-top">
+        <button type="submit" mat-raised-button color="primary">Login</button>
+    </div>
+
+    <span class="center margin-top">New to our platform?</span>
+    <br>
+    <a class="sign-up-link" routerLink="/signup">Sign up here!</a>
+  </form>
+</div>

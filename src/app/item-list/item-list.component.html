@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="form-container">
+      <form (ngSubmit)="addItem()">
+        <div>
+          <label for="formDate">Date:</label>
+          <input type="date" id="formDate" name="formDate" [(ngModel)]="formDate" required>
+        </div>
+        <div>
+          <label for="formTitle">Title:</label>
+          <input type="text" id="formTitle" name="formTitle" [(ngModel)]="formTitle" required>
+        </div>
+        <div>
+          <label for="formDescription">Description:</label>
+          <input type="text" id="formDescription" name="formDescription" [(ngModel)]="formDescription" required>
+        </div>
+        <div>
+          <label for="formPriority">Priority:</label>
+          <input type="text" id="formPriority" name="formPriority" [(ngModel)]="formPriority" required>
+        </div>
+        <button type="submit">Add Item</button>
+      </form>
+    </div>
+  
+    <div class="item-list-container">
+      <div class="item-grid">
+        <div *ngFor="let item of items" class="item-card">
+          <strong>Date:</strong> {{ item.date | date }}<br>
+          <strong>Title:</strong> {{ item.title }}<br>
+          <strong>Description:</strong> {{ item.description }}<br>
+          <strong>Priority:</strong> {{ item.priority }}
+        </div>
+      </div>
+    </div>
+  </div>
+  

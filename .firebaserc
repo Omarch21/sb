@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "studyb12312315435789": {
+      "hosting": {
+        "sb": [
+          "studyb12312315435789"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "studyb12312315435789"
+  }
+}
