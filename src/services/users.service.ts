@@ -53,10 +53,17 @@ export class UsersService {
     return from(setDoc(ref, user));
   }
 
-  addItem(item: Item, user:User): Observable<void> {
-    const ref = doc(this.firestore, 'items', user.uid);
+  addItem(item: Item|null, user:User|null): Observable<void> {
 
-    return from(setDoc(ref, item));
+    const userDoc = doc(this.firestore, 'users', user!.uid);
+    console.log('Adding item', user!.uid, item);
+    const itemCollection = collection(userDoc, 'items');
+    
+  
+      const itemDoc = doc(itemCollection);
+      return from(setDoc(itemDoc, item))
+    
+    
   }
   updateItem(item:Item,user: User): Observable<void> {
     const ref = doc(this.firestore, 'items', user.uid);

@@ -3,6 +3,9 @@ import { Item } from './item.model';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AuthenticationService } from 'src/services/authentication.service';
+import { UsersService } from 'src/services/users.service';
+import { User } from 'src/models/user';
 
 @Component({
   selector: 'app-item-list',
@@ -19,6 +22,9 @@ import { FormsModule } from '@angular/forms';
 
 */
 export class ItemListComponent {
+  constructor(private usersService: UsersService, private authService: AuthenticationService){}
+  user: User | null = null;
+  item: Item = {date: new Date,description: '', priority: '',title:''}
   items: Item[] = [
     new Item(new Date(), 'Item 1', 'Description 1', 'High'),
     new Item(new Date(), 'Item 2', 'Description 2', 'Medium'),
@@ -36,14 +42,33 @@ export class ItemListComponent {
     }
 
     const newItem = new Item(new Date(this.formDate), this.formTitle, this.formDescription, this.formPriority);
-    this.items.push(newItem);
-
+    //this.items.push(newItem);
+    this.item.date = new Date(this.formDate);
+    this.item.title = this.formTitle;
+    this.item.description = this.formDescription;
+    this.item.priority = this.formPriority;
     // Reset form inputs
-    this.formDate = '';
+    
+
+  
+this.usersService.currentUserProfile$.subscribe((user1)=> {
+  this.user = user1;
+  if(newItem != undefined){
+  this.usersService.addItem(this.item,this.user)
+      .subscribe(() => {
+
+      });
+    }
+  }
+)
+    
+      this.formDate = '';
     this.formTitle = '';
     this.formDescription = '';
     this.formPriority = '';
   }
+  
+  
   
   editItem(item: Item) {
     // Set the form fields with the selected item's data for editing
