@@ -19,11 +19,10 @@ body {
 }
 
 .content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-    background-color: #245A42;
+   width:100%;
+   color:black;
+   opacity:1;
+   z-index:1;
 }
 
 h1 {
@@ -47,4 +46,23 @@ p {
     font-size: 16px;
     color:#FFAD08;
     margin-top: 20px;
+}
+.logo{
+    position:relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #245A42;
+}
+.logo img{
+    height:auto;
+    width:100%;
+    object-fit:contain;
+    opacity:0.2;
+    z-index:0;
+    position:absolute;
+    top:0;
+    left:0;
+    margin:auto;
 }
